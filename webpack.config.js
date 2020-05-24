@@ -8,7 +8,8 @@ const htmlConfig = {
     inject: "body",
     scriptLoading: "defer",
     favicon: "favicon.ico",
-    meta: { viewport: "width=device-width,initial-scale=1" }
+    meta: { viewport: "width=device-width,initial-scale=1" },
+    template: "./dist/template.html"
 };
 
 module.exports = function(env, argv) {
