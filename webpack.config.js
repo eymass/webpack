@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 const htmlConfig = {
@@ -9,7 +10,7 @@ const htmlConfig = {
     scriptLoading: "defer",
     favicon: "favicon.ico",
     meta: { viewport: "width=device-width,initial-scale=1" },
-    template: "./dist/template.html"
+    template: "./src/template.html"
 };
 
 module.exports = function(env, argv) {
@@ -19,6 +20,8 @@ module.exports = function(env, argv) {
             filename: 'bundle.js',
             path: path.resolve(__dirname, 'dist')
         },
+        mode: "development",
+        devtool: "source-map",
         module: {
             rules: [
                 {
@@ -33,11 +36,15 @@ module.exports = function(env, argv) {
                 },
                 {
                     test: /\.(png|jpg|gif|svg)$/,
-                    use: ['file-loader']
+                    loader: 'file-loader',
+                    options: {
+                        name: 'assets/[name].[ext]'
+                    }
                 }
             ],
         },
         plugins: [
+                new CleanWebpackPlugin(),
                 new HtmlWebpackPlugin(htmlConfig)
         ]
     };
