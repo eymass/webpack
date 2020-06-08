@@ -33,12 +33,10 @@ const WebpackLogo = styled.img`
 
 export default function Webpack() {
 
-    const count = 4 + '1';
-
     return (
         <Page>
             <WebpackLogo src={WebpackPng} />
-            <WebpackTitle>Webpack 5 v{count}</WebpackTitle>
+            <WebpackTitle>Webpack 5</WebpackTitle>
         </Page>
     );
 }
