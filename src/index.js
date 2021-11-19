@@ -1,4 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Webpack from "./assets/Webpack";
+import "./styles.css"
 
-ReactDOM.render(<div>Welcome to Webpack 5</div>,document.getElementById("root"));
+ReactDOM.render(<Webpack />, document.getElementById("root"));
